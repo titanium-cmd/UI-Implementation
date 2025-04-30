@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tech_interview/main.dart';
+import 'package:tech_interview/resources/svgs.dart';
 import 'package:tech_interview/theme/custom_colors.dart';
 import 'package:tech_interview/theme/custom_typography.dart';
+import 'package:tech_interview/views/components/section_list_tile.dart';
 import 'package:tech_interview/views/screens/update_profile_screen.dart';
 
 class IndexScreen extends StatelessWidget {
@@ -24,15 +25,13 @@ class IndexScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           selectedLabelStyle: CustomTypography.subTextSmallRegular,
           items: [
-            BottomNavigationBarItem(label: 'Home', icon: SvgPicture.asset('assets/home.svg')),
+            BottomNavigationBarItem(label: 'Home', icon: SvgPicture.asset(Svgs.home)),
             BottomNavigationBarItem(
               label: 'Requests',
-              icon: SvgPicture.asset(
-                'assets/monitor-mobbile.svg',
-                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.saturation),
-              ),
+              icon: SvgPicture.asset(Svgs.monitorMobbile,
+                  color: CustomColors.iconNeutralWeaker),
             ),
-            BottomNavigationBarItem(label: 'Account', icon: SvgPicture.asset('assets/profile.svg')),
+            BottomNavigationBarItem(label: 'Account', icon: SvgPicture.asset(Svgs.profile)),
           ],
         ),
       ),
@@ -66,7 +65,7 @@ class IndexScreen extends StatelessWidget {
           SizedBox(height: 4),
           CustomText.bodySmallRegular('0244123456',
               textAlign: TextAlign.center, textColor: CustomColors.textNeutralWeak),
-          SizedBox(height: 4),
+          SizedBox(height: 16),
           Card(
             elevation: 0,
             color: CustomColors.fillPrimaryWhite,
@@ -76,16 +75,16 @@ class IndexScreen extends StatelessWidget {
                 GestureDetector(
                     onTap: () => Navigator.push(
                         context, MaterialPageRoute(builder: (_) => UpdateProfileScreen())),
-                    child: SectionListTile(title: 'Update profile', svgPath: 'assets/user.svg')),
+                    child: SectionListTile(title: 'Update profile', svgPath: Svgs.user)),
                 Divider(color: CustomColors.textNeutralDefault),
-                SectionListTile(title: 'Service preference', svgPath: 'assets/monitor-mobbile.svg'),
+                SectionListTile(title: 'Service preference', svgPath: Svgs.monitorMobbile),
                 Divider(color: CustomColors.textNeutralDefault),
-                SectionListTile(title: 'Availability', svgPath: 'assets/clock.svg'),
+                SectionListTile(title: 'Availability', svgPath: Svgs.clock),
                 Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(
-                    title: 'Manage notifications', svgPath: 'assets/notification-status.svg'),
+                    title: 'Manage notifications', svgPath: Svgs.notificationStatus),
                 Divider(color: CustomColors.textNeutralDefault),
-                SectionListTile(title: 'Support', svgPath: 'assets/messages-2.svg'),
+                SectionListTile(title: 'Support', svgPath: Svgs.message2),
                 SizedBox(height: 6),
               ],
             ),
@@ -103,13 +102,13 @@ class IndexScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 6),
-                SectionListTile(title: 'Change password', svgPath: 'assets/lock.svg'),
+                SectionListTile(title: 'Change password', svgPath: Svgs.lock),
                 Divider(color: CustomColors.textNeutralDefault),
-                SectionListTile(title: 'Request account deletion', svgPath: 'assets/danger.svg'),
+                SectionListTile(title: 'Request account deletion', svgPath: Svgs.danger),
                 Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(
                     title: 'Logout',
-                    svgPath: 'assets/logout.svg',
+                    svgPath: Svgs.logout,
                     titleTextColor: Color(0xffC53030),
                     trailing: SizedBox.shrink()),
                 SizedBox(height: 6),
@@ -130,7 +129,7 @@ class IndexScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: SectionListTile(
                     title: 'App version',
-                    svgPath: 'assets/mobile.svg',
+                    svgPath: Svgs.mobile,
                     trailing: CustomText.bodySmallRegular('1.0.0',
                         textColor: CustomColors.textNeutralWeak)),
               )),

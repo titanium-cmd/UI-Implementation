@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_interview/controller/user_controller.dart';
+import 'package:tech_interview/resources/svgs.dart';
 import 'package:tech_interview/theme/custom_colors.dart';
 import 'package:tech_interview/theme/custom_typography.dart';
 import 'package:tech_interview/views/components/custom_buttons.dart';
+import 'package:tech_interview/views/components/custom_input_field.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
@@ -45,7 +47,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           onTap: () => Navigator.pop(context),
           child: Padding(
             padding: const EdgeInsets.only(left: 24),
-            child: SvgPicture.asset('assets/arrow-back.svg'),
+            child: SvgPicture.asset(Svgs.arrowBack),
           ),
         ),
         title: CustomText.h5Medium('Update profile', textColor: CustomColors.textNeutralStronger),
@@ -55,6 +57,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
         children: [
           Form(
             key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Card(
               elevation: 0,
               color: CustomColors.fillPrimaryWhite,
@@ -112,55 +115,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           )
         ],
       ),
-    );
-  }
-}
-
-class CustomInputField extends StatelessWidget {
-  final TextEditingController controller;
-  final String label;
-  final String? Function(String?)? validator;
-  final String? hint;
-  final bool? isRequired;
-  const CustomInputField({
-    super.key,
-    required this.label,
-    this.hint,
-    required this.validator,
-    required this.controller,
-    this.isRequired = true,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            CustomText.bodySmallMedium(label),
-            SizedBox(width: 4),
-            if (isRequired!) ...{CustomText.h5SemiBold('*', textColor: Colors.red)}
-          ],
-        ),
-        SizedBox(height: 8),
-        TextFormField(
-          validator: validator,
-          style: CustomTypography.bodyXSmallRegular,
-          decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-              fillColor: CustomColors.borderNeutralWeakest,
-              filled: true,
-              hintStyle: CustomTypography.bodyXSmallRegular,
-              errorBorder:
-                  OutlineInputBorder(borderSide: BorderSide(color: CustomColors.textDangerDefault)),
-              focusedBorder:
-                  OutlineInputBorder(borderSide: BorderSide(color: CustomColors.iconNeutralWeaker)),
-              enabledBorder:
-                  OutlineInputBorder(borderSide: BorderSide(color: CustomColors.iconNeutralWeaker)),
-              hintText: hint),
-          controller: controller,
-        )
-      ],
     );
   }
 }

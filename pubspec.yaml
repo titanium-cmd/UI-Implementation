@@ -1,6 +1,6 @@
 name: tech_interview
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -19,5 +19,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter-Black.otf
+        - asset: fonts/Inter-SemiBold.otf
+        - asset: fonts/Inter-Bold.otf
+          weight: 600
+        - asset: fonts/Inter-Regular.otf
+        - asset: fonts/Inter-Thin.otf
   assets:
     - assets/

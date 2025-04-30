@@ -46,7 +46,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             child: SvgPicture.asset('assets/arrow-back.svg'),
           ),
         ),
-        title: Text('Update profile'),
+        title: Text('Update profile', style: TextStyle(fontWeight: FontWeight.w500)),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),

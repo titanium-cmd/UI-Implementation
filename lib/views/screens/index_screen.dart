@@ -53,7 +53,9 @@ class IndexScreen extends StatelessWidget {
                 backgroundColor: Color(0xffe0e0e0),
                 child: Text('JL',
                     style: TextStyle(
-                        fontSize: 24, color: Color(0xff7A7A7A), fontWeight: FontWeight.w500)),
+                        fontSize: 24,
+                        color: CustomColors.neutralWeak,
+                        fontWeight: FontWeight.w500)),
               ),
             ),
           ),
@@ -61,11 +63,12 @@ class IndexScreen extends StatelessWidget {
           Text(
             'Jonathan Mensah',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.w600, color: CustomColors.neutralStronger),
           ),
           SizedBox(height: 4),
           Text('0244123456',
-              textAlign: TextAlign.center, style: TextStyle(color: Color(0xff7A7A7A))),
+              textAlign: TextAlign.center, style: TextStyle(color: CustomColors.neutralWeak)),
           SizedBox(height: 4),
           Card(
             elevation: 0,

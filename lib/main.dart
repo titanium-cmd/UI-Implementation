@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tech_interview/theme/custom_colors.dart';
 import 'package:tech_interview/views/screens/index_screen.dart';
 
 void main() {
@@ -41,7 +42,7 @@ class SectionListTile extends StatelessWidget {
           Expanded(
               child: Text(
             title,
-            style: TextStyle(color: titleTextColor ?? Colors.black),
+            style: TextStyle(color: titleTextColor ?? CustomColors.neutralStrong),
           )),
           trailing ?? SvgPicture.asset('assets/arrow-right.svg'),
         ],

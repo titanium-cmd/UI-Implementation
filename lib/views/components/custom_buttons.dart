@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_interview/theme/custom_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
@@ -9,7 +10,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         style: TextButton.styleFrom(
-            backgroundColor: Color(0xff102340),
+            backgroundColor: CustomColors.primaryStrong,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
         onPressed: onPressed,
         child: Text(label, style: TextStyle(color: Colors.white, fontSize: 16)));

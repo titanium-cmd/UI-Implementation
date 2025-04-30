@@ -30,7 +30,7 @@ class SectionListTile extends StatelessWidget {
     required this.svgPath,
     required this.title,
   });
-
+// Surface Fill/Tuulbox/Primary/Primary-white
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,7 +42,7 @@ class SectionListTile extends StatelessWidget {
           Expanded(
               child: Text(
             title,
-            style: TextStyle(color: titleTextColor ?? CustomColors.neutralStrong),
+            style: TextStyle(color: titleTextColor ?? CustomColors.textNeutralStrong),
           )),
           trailing ?? SvgPicture.asset('assets/arrow-right.svg'),
         ],

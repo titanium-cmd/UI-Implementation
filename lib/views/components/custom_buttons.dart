@@ -10,9 +10,10 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         style: TextButton.styleFrom(
-            backgroundColor: CustomColors.primaryStrong,
+            backgroundColor: CustomColors.textPrimaryStrong,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
         onPressed: onPressed,
-        child: Text(label, style: TextStyle(color: Colors.white, fontSize: 16)));
+        child: Text(label,
+            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500)));
   }
 }

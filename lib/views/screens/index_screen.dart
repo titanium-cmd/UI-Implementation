@@ -10,23 +10,29 @@ class IndexScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.neutralDefault,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        selectedItemColor: Color(0xff214883),
-        unselectedItemColor: Color(0xffB8B8B8),
-        backgroundColor: Colors.white,
-        items: [
-          BottomNavigationBarItem(label: 'Home', icon: SvgPicture.asset('assets/home.svg')),
-          BottomNavigationBarItem(
-            label: 'Requests',
-            icon: SvgPicture.asset(
-              'assets/monitor-mobbile.svg',
-              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.saturation),
+      backgroundColor: CustomColors.textNeutralDefault,
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: 2,
+          selectedItemColor: CustomColors.blue700,
+          unselectedItemColor: CustomColors.iconNeutralWeaker,
+          backgroundColor: Colors.white,
+          items: [
+            BottomNavigationBarItem(label: 'Home', icon: SvgPicture.asset('assets/home.svg')),
+            BottomNavigationBarItem(
+              label: 'Requests',
+              icon: SvgPicture.asset(
+                'assets/monitor-mobbile.svg',
+                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.saturation),
+              ),
             ),
-          ),
-          BottomNavigationBarItem(label: 'Account', icon: SvgPicture.asset('assets/profile.svg')),
-        ],
+            BottomNavigationBarItem(label: 'Account', icon: SvgPicture.asset('assets/profile.svg')),
+          ],
+        ),
       ),
       appBar: AppBar(
           backgroundColor: Colors.white,
@@ -44,7 +50,7 @@ class IndexScreen extends StatelessWidget {
         children: [
           Card(
             elevation: 0,
-            color: Color(0xffFCFCFC),
+            color: CustomColors.borderNeutralWeakest,
             shape: CircleBorder(),
             child: Padding(
               padding: const EdgeInsets.all(2),
@@ -54,7 +60,7 @@ class IndexScreen extends StatelessWidget {
                 child: Text('JL',
                     style: TextStyle(
                         fontSize: 24,
-                        color: CustomColors.neutralWeak,
+                        color: CustomColors.textNeutralWeak,
                         fontWeight: FontWeight.w500)),
               ),
             ),
@@ -64,15 +70,15 @@ class IndexScreen extends StatelessWidget {
             'Jonathan Mensah',
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.w600, color: CustomColors.neutralStronger),
+                fontSize: 24, fontWeight: FontWeight.w600, color: CustomColors.textNeutralStronger),
           ),
           SizedBox(height: 4),
           Text('0244123456',
-              textAlign: TextAlign.center, style: TextStyle(color: CustomColors.neutralWeak)),
+              textAlign: TextAlign.center, style: TextStyle(color: CustomColors.textNeutralWeak)),
           SizedBox(height: 4),
           Card(
             elevation: 0,
-            color: Color(0xffFFFFFC),
+            color: CustomColors.fillPrimaryWhite,
             child: Column(
               children: [
                 SizedBox(height: 6),
@@ -80,14 +86,14 @@ class IndexScreen extends StatelessWidget {
                     onTap: () => Navigator.push(
                         context, MaterialPageRoute(builder: (_) => UpdateProfileScreen())),
                     child: SectionListTile(title: 'Update profile', svgPath: 'assets/user.svg')),
-                Divider(color: CustomColors.neutralDefault),
+                Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(title: 'Service preference', svgPath: 'assets/monitor-mobbile.svg'),
-                Divider(color: CustomColors.neutralDefault),
+                Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(title: 'Availability', svgPath: 'assets/clock.svg'),
-                Divider(color: CustomColors.neutralDefault),
+                Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(
                     title: 'Manage notifications', svgPath: 'assets/notification-status.svg'),
-                Divider(color: CustomColors.neutralDefault),
+                Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(title: 'Support', svgPath: 'assets/messages-2.svg'),
                 SizedBox(height: 6),
               ],
@@ -95,28 +101,51 @@ class IndexScreen extends StatelessWidget {
           ),
           SizedBox(height: 12),
           Card(
+            margin: EdgeInsets.only(left: 6, right: 6, bottom: 0),
             elevation: 0,
-            color: Color(0xffFFFFFC),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+            )),
+            color: CustomColors.fillPrimaryWhite,
             child: Column(
               children: [
                 SizedBox(height: 6),
                 SectionListTile(title: 'Change password', svgPath: 'assets/lock.svg'),
-                Divider(color: CustomColors.neutralDefault),
+                Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(title: 'Request account deletion', svgPath: 'assets/danger.svg'),
-                Divider(color: CustomColors.neutralDefault),
+                Divider(color: CustomColors.textNeutralDefault),
                 SectionListTile(
-                  title: 'Logout',
-                  svgPath: 'assets/logout.svg',
-                  titleTextColor: Color(0xffC53030),
-                  trailing: SizedBox.shrink(),
-                ),
-                Divider(color: CustomColors.neutralDefault),
-                SectionListTile(
-                    title: 'App version', svgPath: 'assets/mobile.svg', trailing: Text('1.0.0')),
+                    title: 'Logout',
+                    svgPath: 'assets/logout.svg',
+                    titleTextColor: Color(0xffC53030),
+                    trailing: SizedBox.shrink()),
                 SizedBox(height: 6),
               ],
             ),
-          )
+          ),
+          Divider(color: CustomColors.textNeutralDefault, height: 0),
+          Card(
+              margin: EdgeInsets.only(left: 6, right: 6, bottom: 0),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              )),
+              elevation: 0,
+              color: CustomColors.fillNeutralWeak, //#FCFCFC
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SectionListTile(
+                    title: 'App version',
+                    svgPath: 'assets/mobile.svg',
+                    trailing: Text(
+                      '1.0.0',
+                      style: TextStyle(color: CustomColors.textNeutralWeak),
+                    )),
+              )),
+          SizedBox(height: 6),
         ],
       ),
     );

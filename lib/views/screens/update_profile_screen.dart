@@ -21,8 +21,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColors.neutralDefault,
+      backgroundColor: CustomColors.textNeutralDefault,
       bottomNavigationBar: BottomAppBar(
+        height: 74,
         color: Colors.white,
         child: PrimaryButton(
             onPressed: () async {
@@ -54,7 +55,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             key: _formKey,
             child: Card(
               elevation: 0,
-              color: Color(0xffFFFFFC),
+              color: CustomColors.fillPrimaryWhite,
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
@@ -142,13 +143,18 @@ class CustomInputField extends StatelessWidget {
         SizedBox(height: 8),
         TextFormField(
           validator: validator,
+          style: TextStyle(fontSize: 13),
           decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-              fillColor: Color(0xffFCFCFC),
+              fillColor: CustomColors.borderNeutralWeakest,
               filled: true,
               hintStyle: TextStyle(fontSize: 13),
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xffB8B8B8))),
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xffB8B8B8))),
+              errorBorder:
+                  OutlineInputBorder(borderSide: BorderSide(color: CustomColors.textDangerDefault)),
+              focusedBorder:
+                  OutlineInputBorder(borderSide: BorderSide(color: CustomColors.iconNeutralWeaker)),
+              enabledBorder:
+                  OutlineInputBorder(borderSide: BorderSide(color: CustomColors.iconNeutralWeaker)),
               hintText: hint),
           controller: controller,
         )

@@ -6,7 +6,7 @@ class Svgs {
   static String home = 'assets/svgs/home.svg';
   static String lock = 'assets/svgs/lock.svg';
   static String logout = 'assets/svgs/logout.svg';
-  static String message2 = 'assets/svgs/message-2.svg';
+  static String message2 = 'assets/svgs/messages-2.svg';
   static String mobile = 'assets/svgs/mobile.svg';
   static String monitorMobbile = 'assets/svgs/monitor-mobbile.svg';
   static String notificationStatus = 'assets/svgs/notification-status.svg';

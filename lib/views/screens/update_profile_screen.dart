@@ -22,23 +22,36 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   final _formKey = GlobalKey<FormState>();
 
   @override
+  void dispose() {
+    _firstName.dispose();
+    _lastName.dispose();
+    _address.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColors.textNeutralDefault,
       bottomNavigationBar: BottomAppBar(
         height: 74,
         color: Colors.white,
-        child: PrimaryButton(
-            onPressed: () async {
-              final isValid = _formKey.currentState?.validate() ?? false;
-              if (isValid) {
-                final (_, msg) = await _userController.updateuserProfile(
-                    _firstName.text, _lastName.text, _address.text);
-                ScaffoldMessenger.maybeOf(context)
-                    ?.showSnackBar(SnackBar(content: CustomText.bodySmallRegular(msg)));
-              }
-            },
-            label: 'Save changes'),
+        child: ValueListenableBuilder(
+            valueListenable: _userController.getIsLoadingNotifier(),
+            builder: (context, isLoading, _) {
+              return PrimaryButton(
+                  isLoading: isLoading,
+                  onPressed: () async {
+                    final isValid = _formKey.currentState?.validate() ?? false;
+                    if (isValid) {
+                      final (_, msg) = await _userController.updateuserProfile(
+                          _firstName.text, _lastName.text, _address.text);
+                      ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(
+                          content: CustomText.bodySmallRegular(msg, textColor: Colors.white)));
+                    }
+                  },
+                  label: 'Save changes');
+            }),
       ),
       appBar: AppBar(
         backgroundColor: Colors.white,

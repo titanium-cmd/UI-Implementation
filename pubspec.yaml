@@ -31,5 +31,5 @@ flutter:
         - asset: fonts/Inter-Regular.otf
         - asset: fonts/Inter-Thin.otf
   assets:
-    - assets/svgs
-    - assets/imgs
+    - assets/svgs/
+    - assets/imgs/

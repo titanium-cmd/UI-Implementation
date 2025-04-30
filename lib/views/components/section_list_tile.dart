@@ -25,7 +25,7 @@ class SectionListTile extends StatelessWidget {
           SvgPicture.asset(svgPath),
           SizedBox(width: 12),
           Expanded(child: CustomText.bodySmallRegular(title, textColor: titleTextColor)),
-          trailing ?? SvgPicture.asset(Svgs.arrowBack),
+          trailing ?? SvgPicture.asset(Svgs.arrowRight),
         ],
       ),
     );

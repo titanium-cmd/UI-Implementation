@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tech_interview/theme/custom_colors.dart';
+import 'package:tech_interview/theme/custom_typography.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
@@ -13,7 +14,6 @@ class PrimaryButton extends StatelessWidget {
             backgroundColor: CustomColors.textPrimaryStrong,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
         onPressed: onPressed,
-        child: Text(label,
-            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500)));
+        child: CustomText.bodyMedium(label, textColor: Colors.white));
   }
 }

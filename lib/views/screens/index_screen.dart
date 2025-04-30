@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_interview/main.dart';
 import 'package:tech_interview/theme/custom_colors.dart';
+import 'package:tech_interview/theme/custom_typography.dart';
 import 'package:tech_interview/views/screens/update_profile_screen.dart';
 
 class IndexScreen extends StatelessWidget {
@@ -21,6 +22,7 @@ class IndexScreen extends StatelessWidget {
           selectedItemColor: CustomColors.blue700,
           unselectedItemColor: CustomColors.iconNeutralWeaker,
           backgroundColor: Colors.white,
+          selectedLabelStyle: CustomTypography.subTextSmallRegular,
           items: [
             BottomNavigationBarItem(label: 'Home', icon: SvgPicture.asset('assets/home.svg')),
             BottomNavigationBarItem(
@@ -40,10 +42,7 @@ class IndexScreen extends StatelessWidget {
           elevation: 0,
           title: Padding(
             padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              'Account',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-            ),
+            child: CustomText.h4SemiBold('Account', textColor: CustomColors.textNeutralStronger),
           )),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
@@ -57,24 +56,16 @@ class IndexScreen extends StatelessWidget {
               child: CircleAvatar(
                 radius: 48,
                 backgroundColor: Color(0xffe0e0e0),
-                child: Text('JL',
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: CustomColors.textNeutralWeak,
-                        fontWeight: FontWeight.w500)),
+                child: CustomText.h3Medium('JL', textColor: CustomColors.textNeutralWeak),
               ),
             ),
           ),
           SizedBox(height: 6),
-          Text(
-            'Jonathan Mensah',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 24, fontWeight: FontWeight.w600, color: CustomColors.textNeutralStronger),
-          ),
+          CustomText.h5SemiBold('Jonathan Mensah',
+              textAlign: TextAlign.center, textColor: CustomColors.textNeutralStronger),
           SizedBox(height: 4),
-          Text('0244123456',
-              textAlign: TextAlign.center, style: TextStyle(color: CustomColors.textNeutralWeak)),
+          CustomText.bodySmallRegular('0244123456',
+              textAlign: TextAlign.center, textColor: CustomColors.textNeutralWeak),
           SizedBox(height: 4),
           Card(
             elevation: 0,
@@ -140,10 +131,8 @@ class IndexScreen extends StatelessWidget {
                 child: SectionListTile(
                     title: 'App version',
                     svgPath: 'assets/mobile.svg',
-                    trailing: Text(
-                      '1.0.0',
-                      style: TextStyle(color: CustomColors.textNeutralWeak),
-                    )),
+                    trailing: CustomText.bodySmallRegular('1.0.0',
+                        textColor: CustomColors.textNeutralWeak)),
               )),
           SizedBox(height: 6),
         ],

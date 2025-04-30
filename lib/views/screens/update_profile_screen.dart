@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_interview/controller/user_controller.dart';
 import 'package:tech_interview/theme/custom_colors.dart';
+import 'package:tech_interview/theme/custom_typography.dart';
 import 'package:tech_interview/views/components/custom_buttons.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
@@ -31,7 +32,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               if (isValid) {
                 final (_, msg) = await _userController.updateuserProfile(
                     _firstName.text, _lastName.text, _address.text);
-                ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(content: Text(msg)));
+                ScaffoldMessenger.maybeOf(context)
+                    ?.showSnackBar(SnackBar(content: CustomText.bodySmallRegular(msg)));
               }
             },
             label: 'Save changes'),
@@ -46,7 +48,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             child: SvgPicture.asset('assets/arrow-back.svg'),
           ),
         ),
-        title: Text('Update profile', style: TextStyle(fontWeight: FontWeight.w500)),
+        title: CustomText.h5Medium('Update profile', textColor: CustomColors.textNeutralStronger),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
@@ -135,20 +137,20 @@ class CustomInputField extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(label),
+            CustomText.bodySmallMedium(label),
             SizedBox(width: 4),
-            if (isRequired!) ...{Text('*', style: TextStyle(color: Colors.red, fontSize: 18))}
+            if (isRequired!) ...{CustomText.h5SemiBold('*', textColor: Colors.red)}
           ],
         ),
         SizedBox(height: 8),
         TextFormField(
           validator: validator,
-          style: TextStyle(fontSize: 13),
+          style: CustomTypography.bodyXSmallRegular,
           decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
               fillColor: CustomColors.borderNeutralWeakest,
               filled: true,
-              hintStyle: TextStyle(fontSize: 13),
+              hintStyle: CustomTypography.bodyXSmallRegular,
               errorBorder:
                   OutlineInputBorder(borderSide: BorderSide(color: CustomColors.textDangerDefault)),
               focusedBorder:

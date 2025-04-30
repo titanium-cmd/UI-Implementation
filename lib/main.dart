@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tech_interview/theme/custom_colors.dart';
+import 'package:tech_interview/theme/custom_typography.dart';
 import 'package:tech_interview/views/screens/index_screen.dart';
 
 void main() {
@@ -31,7 +31,7 @@ class SectionListTile extends StatelessWidget {
     required this.svgPath,
     required this.title,
   });
-// Surface Fill/Tuulbox/Primary/Primary-white
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,11 +40,7 @@ class SectionListTile extends StatelessWidget {
         children: [
           SvgPicture.asset(svgPath),
           SizedBox(width: 12),
-          Expanded(
-              child: Text(
-            title,
-            style: TextStyle(color: titleTextColor ?? CustomColors.textNeutralStrong),
-          )),
+          Expanded(child: CustomText.bodySmallRegular(title, textColor: titleTextColor)),
           trailing ?? SvgPicture.asset('assets/arrow-right.svg'),
         ],
       ),

@@ -45,12 +45,14 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   onPressed: () async {
                     final isValid = _formKey.currentState?.validate() ?? false;
                     if (isValid) {
-                      final (_, msg) = await _userController.updateuserProfile(
+                      final (isSuccess, msg) = await _userController.updateuserProfile(
                           _firstName.text, _lastName.text, _address.text);
-                      _firstName.text = '';
-                      _lastName.text = '';
-                      _address.text = '';
+                      if (isSuccess) {
+                        _formKey.currentState?.reset();
+                      }
                       ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(
+                          backgroundColor:
+                              isSuccess ? Colors.green : CustomColors.textDangerDefault,
                           content: CustomText.bodySmallRegular(msg, textColor: Colors.white)));
                     }
                   },

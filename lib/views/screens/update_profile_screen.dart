@@ -26,6 +26,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     _firstName.dispose();
     _lastName.dispose();
     _address.dispose();
+    _formKey.currentState?.dispose();
     super.dispose();
   }
 
@@ -46,6 +47,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     if (isValid) {
                       final (_, msg) = await _userController.updateuserProfile(
                           _firstName.text, _lastName.text, _address.text);
+                      _firstName.text = '';
+                      _lastName.text = '';
+                      _address.text = '';
                       ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(
                           content: CustomText.bodySmallRegular(msg, textColor: Colors.white)));
                     }

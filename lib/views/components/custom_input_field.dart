@@ -23,7 +23,7 @@ class CustomInputField extends StatelessWidget {
       children: [
         Row(
           children: [
-            CustomText.bodySmallMedium(label),
+            CustomText.bodySmallMedium(label, textColor: CustomColors.textNeutralStronger),
             SizedBox(width: 4),
             if (isRequired!) ...{CustomText.h5SemiBold('*', textColor: Colors.red)}
           ],
